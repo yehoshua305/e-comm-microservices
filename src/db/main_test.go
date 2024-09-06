@@ -13,11 +13,6 @@ import (
 	"github.com/yehoshua305/e-comm-microservices/src/util"
 )
 
-type Table struct {
-	TableName string
-	DynamodbClient *dynamodb.Client
-}
-
 var testDB *Table
 
 func TestMain(m *testing.M) {
