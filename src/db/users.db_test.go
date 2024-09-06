@@ -71,3 +71,4 @@ func TestDeleteUser(t *testing.T) {
 	require.Error(t, err)
 	require.Empty(t, User2)
 }
+
