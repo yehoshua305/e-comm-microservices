@@ -7,8 +7,8 @@ import (
 	"strings"
 
 	"github.com/gin-gonic/gin"
-	"github.com/yehoshua305/golang-simple-api/token"
-	"github.com/yehoshua305/golang-simple-api/util"
+	"github.com/yehoshua305/e-comm-microservices/src/token"
+	"github.com/yehoshua305/e-comm-microservices/src/util"
 )
 
 const (
