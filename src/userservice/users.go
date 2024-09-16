@@ -65,7 +65,7 @@ func (server *Server) createUser(ctx *gin.Context) {
 
 	User, err := server.table.CreateUser(ctx, arg)
 	if err != nil {
-		ctx.JSON(http.StatusInternalServerError, errorResponse(err))
+		ctx.JSON(http.StatusInternalServerError, util.ErrorResponse(err))
 		return
 	}
 
@@ -80,7 +80,7 @@ type getUserRequest struct {
 func (server *Server) getUser(ctx *gin.Context) {
 	var req getUserRequest
 	if err := ctx.ShouldBindUri(&req); err != nil {
-		ctx.JSON(http.StatusBadRequest, errorResponse(err))
+		ctx.JSON(http.StatusBadRequest, util.ErrorResponse(err))
 		return
 	}
 
@@ -91,7 +91,7 @@ func (server *Server) getUser(ctx *gin.Context) {
 
 	User, err := server.table.GetUser(ctx, req.Username)
 	if err != nil {
-		ctx.JSON(http.StatusInternalServerError, errorResponse(err))
+		ctx.JSON(http.StatusInternalServerError, util.ErrorResponse(err))
 		return
 	}
 
@@ -103,7 +103,7 @@ func (server *Server) getUser(ctx *gin.Context) {
 func (server *Server) updateUser(ctx *gin.Context) {
 	var data interface{}
 	if err := ctx.ShouldBindJSON(&data); err != nil {
-		ctx.JSON(http.StatusBadRequest, errorResponse(err))
+		ctx.JSON(http.StatusBadRequest, util.ErrorResponse(err))
 	}
 
 	ctx.JSON(http.StatusOK, data)
@@ -117,7 +117,7 @@ type deleteUserRequest struct {
 func (server *Server) deleteUser(ctx *gin.Context) {
 	var req deleteUserRequest
 	if err := ctx.ShouldBindUri(&req); err != nil {
-		ctx.JSON(http.StatusBadRequest, errorResponse(err))
+		ctx.JSON(http.StatusBadRequest, util.ErrorResponse(err))
 	}
 
 	authPayload := ctx.MustGet(authorizationPayloadKey).(*token.Claims)
@@ -127,7 +127,7 @@ func (server *Server) deleteUser(ctx *gin.Context) {
 
 	resp, err := server.table.DeleteUser(ctx, req.Username)
 	if err != nil {
-		ctx.JSON(http.StatusInternalServerError, errorResponse(err))
+		ctx.JSON(http.StatusInternalServerError, util.ErrorResponse(err))
 		return
 	}
 
@@ -159,7 +159,7 @@ func (server *Server) loginUser(ctx *gin.Context) {
 	// Get User
 	User, err := server.table.GetUser(ctx, req.Username)
 	if err != nil {
-		ctx.JSON(http.StatusInternalServerError, errorResponse(err))
+		ctx.JSON(http.StatusInternalServerError, util.ErrorResponse(err))
 		return
 	}
 
@@ -169,20 +169,20 @@ func (server *Server) loginUser(ctx *gin.Context) {
 	// Check Password
 	err = util.CheckPassword(hashedPassword, req.Password)
 	if err != nil {
-		ctx.JSON(http.StatusUnauthorized, errorResponse(err))
+		ctx.JSON(http.StatusUnauthorized, util.ErrorResponse(err))
 		return
 	}
 
 	// Create JWT Token
 	accessToken, accessPayload, err := server.tokenMaker.CreateToken(req.Username, server.config.AccessTokenDuration)
 	if err != nil {
-		ctx.JSON(http.StatusInternalServerError, errorResponse(err))
+		ctx.JSON(http.StatusInternalServerError, util.ErrorResponse(err))
 		return
 	}
 
 	refreshToken, refreshTokenPayload, err := server.tokenMaker.CreateToken(req.Username, server.config.RefreshTokenDuration)
 	if err != nil {
-		ctx.JSON(http.StatusInternalServerError, errorResponse(err))
+		ctx.JSON(http.StatusInternalServerError, util.ErrorResponse(err))
 		return
 	}
 	
@@ -196,7 +196,7 @@ func (server *Server) loginUser(ctx *gin.Context) {
 		ExpiresAt:    refreshTokenPayload.ExpiresAt.Time,
 	})
 	if err != nil {
-		ctx.JSON(http.StatusInternalServerError, errorResponse(err))
+		ctx.JSON(http.StatusInternalServerError, util.ErrorResponse(err))
 		return
 	}
 
