@@ -142,8 +142,12 @@ github.com/yehoshua305/e-comm-microservices v0.0.0-20240916171954-8e90c72e8d56 h
 github.com/yehoshua305/e-comm-microservices v0.0.0-20240916171954-8e90c72e8d56/go.mod h1:t/EmeEbB4LksQuxH2VIHVuwWktXqEmuOWowC1R3tlu8=
 github.com/yehoshua305/e-comm-microservices/src/db v0.0.0-20240916171329-fb3480864d64 h1:lceiJZr1d+BdJbfo/8KDC2TAoAstndLKb1oG5LjxXiE=
 github.com/yehoshua305/e-comm-microservices/src/db v0.0.0-20240916171329-fb3480864d64/go.mod h1:ZMzgIN7icluzYavM+b4MrN5m/mDO6Njn9tfHHxsrmvM=
+github.com/yehoshua305/e-comm-microservices/src/db v0.0.0-20240916180901-b6b278c9a48e h1:vlG6QbKRKIFDF4i8XZo04AjrwVO/JFJRS+4HKJD8+l4=
+github.com/yehoshua305/e-comm-microservices/src/db v0.0.0-20240916180901-b6b278c9a48e/go.mod h1:ZMzgIN7icluzYavM+b4MrN5m/mDO6Njn9tfHHxsrmvM=
 github.com/yehoshua305/e-comm-microservices/src/util v0.0.0-20240916171954-8e90c72e8d56 h1:/XBcq7tmaaINE9Plwj4ao+KQMeQo7dLWACnVHl+qww0=
 github.com/yehoshua305/e-comm-microservices/src/util v0.0.0-20240916171954-8e90c72e8d56/go.mod h1:aBTKLWlyF0qnAwnpP4sWink3SaVxVSx4DUmqUOeaOrQ=
+github.com/yehoshua305/e-comm-microservices/src/util v0.0.0-20240916180901-b6b278c9a48e h1:ZndAIYXhFDPAkLFbblD9NWiQi8sp6tmTH8XjuKX4Ukk=
+github.com/yehoshua305/e-comm-microservices/src/util v0.0.0-20240916180901-b6b278c9a48e/go.mod h1:aBTKLWlyF0qnAwnpP4sWink3SaVxVSx4DUmqUOeaOrQ=
 go.uber.org/multierr v1.11.0 h1:blXXJkSxSSfBVBlC76pxqeO+LN3aDfLQo+309xJstO0=
 go.uber.org/multierr v1.11.0/go.mod h1:20+QtiLqy0Nd6FdQB9TLXag12DsQkrbs3htMFfDN80Y=
 golang.org/x/arch v0.10.0 h1:S3huipmSclq3PJMNe76NGwkBR504WFkQ5dhzWzP8ZW8=

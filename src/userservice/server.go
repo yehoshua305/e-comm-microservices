@@ -5,7 +5,6 @@ import (
 
 	"github.com/gin-gonic/gin" 
 	"github.com/yehoshua305/e-comm-microservices/src/db"
-	"github.com/yehoshua305/e-comm-microservices/src/token"
 	"github.com/yehoshua305/e-comm-microservices/src/util"
 )
 
@@ -14,11 +13,11 @@ type Server struct {
 	config util.Config
 	table  db.Table
 	router *gin.Engine
-	tokenMaker token.Maker
+	tokenMaker util.Maker
 }
 
 func NewServer(config util.Config, table db.Table) (*Server, error) {
-	tokenMaker, err := token.NewJWTMaker(config.TokenSymmetricKey)
+	tokenMaker, err := util.NewJWTMaker(config.TokenSymmetricKey)
 	if err != nil {
 		return nil, fmt.Errorf("cannot create token maker: %w", err)
 	}

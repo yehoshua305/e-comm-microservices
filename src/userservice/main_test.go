@@ -1,4 +1,4 @@
-package api
+package users
 
 import (
 	"testing"
@@ -7,8 +7,8 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/require"
-	"github.com/yehoshua305/e-comm-microservices/db"
-	"github.com/yehoshua305/e-comm-microservices/util"
+	"github.com/yehoshua305/e-comm-microservices/src/db"
+	"github.com/yehoshua305/e-comm-microservices/src/util"
 )
 
 func newTestServer(t *testing.T, table db.Table) *Server {

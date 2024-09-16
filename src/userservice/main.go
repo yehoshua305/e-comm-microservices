@@ -1,4 +1,4 @@
-package main
+package users
 
 import (
 	"context"
@@ -38,7 +38,7 @@ func main() {
 	})
 
 	table := db.Table{TableName: "Test", DynamodbClient: dynamoDBClient}
-	server, err := api.NewServer(configVariables, table)
+	server, err := NewServer(configVariables, table)
 	if err != nil {
 		log.Fatalf("Error creating server: %v", err)
 	}
