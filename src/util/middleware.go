@@ -11,9 +11,9 @@ import (
 )
 
 const (
-	authorizationHeaderKey = "authorization"
-	authorizationTypeBearer = "bearer"
-	authorizationPayloadKey = "authorization_payload"
+	AuthorizationHeaderKey = "authorization"
+	AuthorizationTypeBearer = "bearer"
+	AuthorizationPayloadKey = "authorization_payload"
 )
 
 // authMiddleware creates a gin middleware for authorization.
@@ -25,7 +25,7 @@ const (
 func AuthMiddleware(tokenMaker token.Maker) gin.HandlerFunc {
 	return func (ctx *gin.Context) {
 		// get authorization header
-		authorizationHeader := ctx.GetHeader(authorizationHeaderKey)
+		authorizationHeader := ctx.GetHeader(AuthorizationHeaderKey)
 		if len(authorizationHeader) == 0 {
 			err := errors.New("authorization header required")
 			ctx.AbortWithStatusJSON(http.StatusUnauthorized, ErrorResponse(err))
@@ -42,7 +42,7 @@ func AuthMiddleware(tokenMaker token.Maker) gin.HandlerFunc {
 
 		// check authorization header type
 		authorizationType := strings.ToLower(fields[0])
-		if authorizationType != authorizationTypeBearer {
+		if authorizationType != AuthorizationTypeBearer {
 			err := fmt.Errorf("unsupported authorization type %s", authorizationType)
 			ctx.AbortWithStatusJSON(http.StatusUnauthorized, ErrorResponse(err))
 			return
@@ -56,7 +56,7 @@ func AuthMiddleware(tokenMaker token.Maker) gin.HandlerFunc {
 			return
 		}
 
-		ctx.Set(authorizationPayloadKey, claims)
+		ctx.Set(AuthorizationPayloadKey, claims)
 
 		// The Next method is responsible for advancing the execution to 
 		// the next middleware in the chain.

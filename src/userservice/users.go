@@ -85,7 +85,7 @@ func (server *Server) getUser(ctx *gin.Context) {
 		return
 	}
 
-	authPayload := ctx.MustGet(authorizationPayloadKey).(*token.Claims)
+	authPayload := ctx.MustGet(util.AuthorizationPayloadKey).(*token.Claims)
 	if authPayload.Username != req.Username {
 		ctx.JSON(http.StatusUnauthorized, errors.New("no User account for user"))
 	}
@@ -121,7 +121,7 @@ func (server *Server) deleteUser(ctx *gin.Context) {
 		ctx.JSON(http.StatusBadRequest, util.ErrorResponse(err))
 	}
 
-	authPayload := ctx.MustGet(authorizationPayloadKey).(*token.Claims)
+	authPayload := ctx.MustGet(util.AuthorizationPayloadKey).(*token.Claims)
 	if authPayload.Username != req.Username {
 		ctx.JSON(http.StatusUnauthorized, errors.New("no User account for user"))
 	}
