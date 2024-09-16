@@ -10,7 +10,6 @@ require (
 	github.com/gin-gonic/gin v1.10.0
 	github.com/google/uuid v1.6.0
 	github.com/stretchr/testify v1.9.0
-	github.com/yehoshua305/e-comm-microservices v0.0.0-20240916171954-8e90c72e8d56
 	github.com/yehoshua305/e-comm-microservices/src/db v0.0.0-20240916203556-19ec0a8b03d0
 	github.com/yehoshua305/e-comm-microservices/src/util v0.0.0-20240916203556-19ec0a8b03d0
 )
