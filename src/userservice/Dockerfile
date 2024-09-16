@@ -2,6 +2,7 @@
 FROM golang:1.23-alpine3.19 AS builder
 WORKDIR /app
 COPY . .
+RUN apk add --no-cache git
 RUN go build -o main main.go
 
 # Run Stage
