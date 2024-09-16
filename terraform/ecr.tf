@@ -4,7 +4,7 @@
 
 # api
 data "template_file" "ecomm" {
-  template = file("./policies/ecr-cross-account-policy.json")
+  template = file("./policies/ecr-policy.json")
   vars = {
     account_id        = local.account_id
   }
