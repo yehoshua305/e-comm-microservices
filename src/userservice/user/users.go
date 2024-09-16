@@ -8,7 +8,6 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
 	"github.com/yehoshua305/e-comm-microservices/src/db"
-	"github.com/yehoshua305/e-comm-microservices/src/token"
 	"github.com/yehoshua305/e-comm-microservices/src/util"
 )
 
@@ -85,7 +84,7 @@ func (server *Server) getUser(ctx *gin.Context) {
 		return
 	}
 
-	authPayload := ctx.MustGet(util.AuthorizationPayloadKey).(*token.Claims)
+	authPayload := ctx.MustGet(util.AuthorizationPayloadKey).(*util.Claims)
 	if authPayload.Username != req.Username {
 		ctx.JSON(http.StatusUnauthorized, errors.New("no User account for user"))
 	}
@@ -121,7 +120,7 @@ func (server *Server) deleteUser(ctx *gin.Context) {
 		ctx.JSON(http.StatusBadRequest, util.ErrorResponse(err))
 	}
 
-	authPayload := ctx.MustGet(util.AuthorizationPayloadKey).(*token.Claims)
+	authPayload := ctx.MustGet(util.AuthorizationPayloadKey).(*util.Claims)
 	if authPayload.Username != req.Username {
 		ctx.JSON(http.StatusUnauthorized, errors.New("no User account for user"))
 	}

@@ -10,11 +10,11 @@ import (
 	"github.com/aws/aws-sdk-go-v2/service/dynamodb"
 	db "github.com/yehoshua305/e-comm-microservices/src/db"
 	"github.com/yehoshua305/e-comm-microservices/src/util"
-	"github.com/yehoshua305/e-comm-microservices/src/user"
+	"github.com/yehoshua305/e-comm-microservices/src/userservice/user"
 )
 
 func main() {
-	configVariables, err := util.LoadConfig(".")
+	configVariables, err := util.LoadConfig("../../.")
 	if err != nil {
 		log.Fatalf("cannot load config %v", err)
 	}

@@ -11,8 +11,8 @@ require (
 	github.com/google/uuid v1.6.0
 	github.com/stretchr/testify v1.9.0
 	github.com/yehoshua305/e-comm-microservices v0.0.0-20240916171954-8e90c72e8d56
-	github.com/yehoshua305/e-comm-microservices/src/db v0.0.0-20240916180901-b6b278c9a48e
-	github.com/yehoshua305/e-comm-microservices/src/util v0.0.0-20240916182726-b3ab68157f66
+	github.com/yehoshua305/e-comm-microservices/src/db v0.0.0-20240916203556-19ec0a8b03d0
+	github.com/yehoshua305/e-comm-microservices/src/util v0.0.0-20240916203556-19ec0a8b03d0
 )
 
 require (
