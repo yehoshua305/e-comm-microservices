@@ -1,4 +1,4 @@
-package token
+package util
 
 import (
 	"testing"
@@ -6,14 +6,13 @@ import (
 
 	"github.com/golang-jwt/jwt/v5"
 	"github.com/stretchr/testify/require"
-	"github.com/yehoshua305/e-comm-microservices/src/util"
 )
 
 func TestNewJWTMaker(t *testing.T) {
-	maker, err := NewJWTMaker(util.RandomString(32))
+	maker, err := NewJWTMaker(RandomString(32))
 	require.NoError(t, err)
 
-	username := util.RandomOwner()
+	username := RandomOwner()
 	duration := time.Minute
 
 	issuedAt := time.Now()
@@ -39,10 +38,10 @@ func TestNewJWTMaker(t *testing.T) {
 }
 
 func TestExpiredToken(t *testing.T) {
-	maker, err := NewJWTMaker(util.RandomString(32))
+	maker, err := NewJWTMaker(RandomString(32))
 	require.NoError(t, err)
 
-	token, claims, err := maker.CreateToken(util.RandomOwner(), -time.Minute)
+	token, claims, err := maker.CreateToken(RandomOwner(), -time.Minute)
 	require.NoError(t, err)
 	require.NotEmpty(t, token)
 	require.NotEmpty(t, claims)
@@ -53,10 +52,10 @@ func TestExpiredToken(t *testing.T) {
 }
 
 func TestInvalidToken(t *testing.T) {
-	maker, err := NewJWTMaker(util.RandomString(32))
+	maker, err := NewJWTMaker(RandomString(32))
 	require.NoError(t, err)
 
-	claims, err := NewClaims(util.RandomOwner(), time.Minute)
+	claims, err := NewClaims(RandomOwner(), time.Minute)
 	require.NoError(t, err)
 
 	jwtToken := jwt.NewWithClaims(jwt.SigningMethodNone, claims)

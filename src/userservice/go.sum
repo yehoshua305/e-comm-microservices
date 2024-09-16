@@ -4,8 +4,6 @@ github.com/aws/aws-sdk-go-v2/config v1.27.33 h1:Nof9o/MsmH4oa0s2q9a0k7tMz5x/Yj5k
 github.com/aws/aws-sdk-go-v2/config v1.27.33/go.mod h1:kEqdYzRb8dd8Sy2pOdEbExTTF5v7ozEXX0McgPE7xks=
 github.com/aws/aws-sdk-go-v2/credentials v1.17.32 h1:7Cxhp/BnT2RcGy4VisJ9miUPecY+lyE9I8JvcZofn9I=
 github.com/aws/aws-sdk-go-v2/credentials v1.17.32/go.mod h1:P5/QMF3/DCHbXGEGkdbilXHsyTBX5D3HSwcrSc9p20I=
-github.com/aws/aws-sdk-go-v2/feature/dynamodb/attributevalue v1.15.2 h1:ss2pLhKcLRqzzWR08Z3arJN1R/9gcjDbzlYHyYNZ/F0=
-github.com/aws/aws-sdk-go-v2/feature/dynamodb/attributevalue v1.15.2/go.mod h1:luXuuIR1T/EQo8PO3rkxKajO0hMRa7NYUhComrBpgW0=
 github.com/aws/aws-sdk-go-v2/feature/dynamodb/attributevalue v1.15.3 h1:/BPXKQ6n1cDWPmc5FWF6fCSaUtK+dWkWd0x9dI4dgaI=
 github.com/aws/aws-sdk-go-v2/feature/dynamodb/attributevalue v1.15.3/go.mod h1:qabLXChRlJREypX5RN/Z47GU+RaMsjotNCZfZ85oD0M=
 github.com/aws/aws-sdk-go-v2/feature/ec2/imds v1.16.13 h1:pfQ2sqNpMVK6xz2RbqLEL0GH87JOwSxPV2rzm8Zsb74=
@@ -16,8 +14,6 @@ github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 v2.6.17 h1:Mqr/V5gvrhA2gvgnF4
 github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 v2.6.17/go.mod h1:aLJpZlCmjE+V+KtN1q1uyZkfnUWpQGpbsn89XPKyzfU=
 github.com/aws/aws-sdk-go-v2/internal/ini v1.8.1 h1:VaRN3TlFdd6KxX1x3ILT5ynH6HvKgqdiXoTxAF4HQcQ=
 github.com/aws/aws-sdk-go-v2/internal/ini v1.8.1/go.mod h1:FbtygfRFze9usAadmnGJNc8KsP346kEe+y2/oyhGAGc=
-github.com/aws/aws-sdk-go-v2/service/dynamodb v1.34.8 h1:XTz8pSCsPiM9FpT+gTPIL6ryiu/T4Z3dpR/FBtPaBXA=
-github.com/aws/aws-sdk-go-v2/service/dynamodb v1.34.8/go.mod h1:N3YdUYxyxhiuAelUgCpSVBuBI1klobJxZrDtL+olu10=
 github.com/aws/aws-sdk-go-v2/service/dynamodb v1.34.9 h1:jbqgtdKfAXebx2/l2UhDEe/jmmCIhaCO3HFK71M7VzM=
 github.com/aws/aws-sdk-go-v2/service/dynamodb v1.34.9/go.mod h1:N3YdUYxyxhiuAelUgCpSVBuBI1klobJxZrDtL+olu10=
 github.com/aws/aws-sdk-go-v2/service/dynamodbstreams v1.22.7 h1:VTBHXWkSeFgT3sfYB4U92qMgzHl0nz9H1tYNHHutLg0=
@@ -142,14 +138,12 @@ github.com/twitchyliquid64/golang-asm v0.15.1 h1:SU5vSMR7hnwNxj24w34ZyCi/FmDZTkS
 github.com/twitchyliquid64/golang-asm v0.15.1/go.mod h1:a1lVb/DtPvCB8fslRZhAngC2+aY1QWCk3Cedj/Gdt08=
 github.com/ugorji/go/codec v1.2.12 h1:9LC83zGrHhuUA9l16C9AHXAqEV/2wBQ4nkvumAE65EE=
 github.com/ugorji/go/codec v1.2.12/go.mod h1:UNopzCgEMSXjBc6AOMqYvWC1ktqTAfzJZUZgYf6w6lg=
-github.com/yehoshua305/e-comm-microservices v0.0.0-20240916171329-fb3480864d64 h1:lQzBzI558UqMHNPXU+NEnRsQPJCkgtnXGtxJLXPeOhM=
-github.com/yehoshua305/e-comm-microservices v0.0.0-20240916171329-fb3480864d64/go.mod h1:t/EmeEbB4LksQuxH2VIHVuwWktXqEmuOWowC1R3tlu8=
-github.com/yehoshua305/e-comm-microservices/src/db v0.0.0-20240906072250-f8f82883a53d h1:HCeC5tYyDHPskFtyx2DEh0Rrw0rUiNZZVl1h36fa3tQ=
-github.com/yehoshua305/e-comm-microservices/src/db v0.0.0-20240906072250-f8f82883a53d/go.mod h1:ZMzgIN7icluzYavM+b4MrN5m/mDO6Njn9tfHHxsrmvM=
+github.com/yehoshua305/e-comm-microservices v0.0.0-20240916171954-8e90c72e8d56 h1:KCwRctpVbBfjeX/x7eFMNipOFqr26JcYOSkLJGu89ho=
+github.com/yehoshua305/e-comm-microservices v0.0.0-20240916171954-8e90c72e8d56/go.mod h1:t/EmeEbB4LksQuxH2VIHVuwWktXqEmuOWowC1R3tlu8=
 github.com/yehoshua305/e-comm-microservices/src/db v0.0.0-20240916171329-fb3480864d64 h1:lceiJZr1d+BdJbfo/8KDC2TAoAstndLKb1oG5LjxXiE=
 github.com/yehoshua305/e-comm-microservices/src/db v0.0.0-20240916171329-fb3480864d64/go.mod h1:ZMzgIN7icluzYavM+b4MrN5m/mDO6Njn9tfHHxsrmvM=
-github.com/yehoshua305/e-comm-microservices/src/util v0.0.0-20240916171329-fb3480864d64 h1:O4R19BzTWRYeaL6PPcCsDoH/wp0EteD3y/S2mji4/s4=
-github.com/yehoshua305/e-comm-microservices/src/util v0.0.0-20240916171329-fb3480864d64/go.mod h1:YSKLSfjdT1Z3pNp+4rGQUUiU1gdR22adPt7aR9gknAI=
+github.com/yehoshua305/e-comm-microservices/src/util v0.0.0-20240916171954-8e90c72e8d56 h1:/XBcq7tmaaINE9Plwj4ao+KQMeQo7dLWACnVHl+qww0=
+github.com/yehoshua305/e-comm-microservices/src/util v0.0.0-20240916171954-8e90c72e8d56/go.mod h1:aBTKLWlyF0qnAwnpP4sWink3SaVxVSx4DUmqUOeaOrQ=
 go.uber.org/multierr v1.11.0 h1:blXXJkSxSSfBVBlC76pxqeO+LN3aDfLQo+309xJstO0=
 go.uber.org/multierr v1.11.0/go.mod h1:20+QtiLqy0Nd6FdQB9TLXag12DsQkrbs3htMFfDN80Y=
 golang.org/x/arch v0.10.0 h1:S3huipmSclq3PJMNe76NGwkBR504WFkQ5dhzWzP8ZW8=
