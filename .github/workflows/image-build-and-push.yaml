@@ -36,4 +36,6 @@ jobs:
         sudo mv skaffold /usr/local/bin
 
     - name: Build and Push Docker Images
-      run: skaffold build --default-repo=${{ secrets.ACCOUNT_ID }}.dkr.ecr.${{ env.REGION }}.amazonaws.com/ecomm --tag=${{ github.sha }} --tag=latest
+      run: |
+        skaffold build --default-repo=${{ secrets.ACCOUNT_ID }}.dkr.ecr.${{ env.REGION }}.amazonaws.com/ecomm --tag=${{ github.sha }}
+        skaffold build --default-repo=${{ secrets.ACCOUNT_ID }}.dkr.ecr.${{ env.REGION }}.amazonaws.com/ecomm --tag=latest
