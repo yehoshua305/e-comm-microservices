@@ -13,7 +13,7 @@ data "template_file" "ecomm" {
 resource "aws_ecr_repository" "ecomm" {
   for_each = toset(["userservice"])
   name                 = "ecomm/${each.value}"
-  image_tag_mutability = "IMMUTABLE"
+  # image_tag_mutability = "IMMUTABLE"
 
   image_scanning_configuration {
     scan_on_push = true
