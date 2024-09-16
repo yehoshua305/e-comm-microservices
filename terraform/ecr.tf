@@ -20,6 +20,6 @@ resource "aws_ecr_repository" "ecomm" {
 }
 
 resource "aws_ecr_repository_policy" "ecomm" {
-  repository = aws_ecr_repository.ecomm_.name
+  repository = aws_ecr_repository.ecomm.name
   policy     = data.template_file.ecomm.rendered
 }
