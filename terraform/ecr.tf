@@ -11,6 +11,7 @@ data "template_file" "ecomm" {
 }
 
 resource "aws_ecr_repository" "ecomm" {
+  for_each = ["userservice"]
   name                 = "api/ecomm"
   image_tag_mutability = "IMMUTABLE"
 
@@ -20,6 +21,7 @@ resource "aws_ecr_repository" "ecomm" {
 }
 
 resource "aws_ecr_repository_policy" "ecomm" {
-  repository = aws_ecr_repository.ecomm.name
+  for_each = [ "userservice" ]
+  repository = aws_ecr_repository.ecomm[each.value].name
   policy     = data.template_file.ecomm.rendered
 }
