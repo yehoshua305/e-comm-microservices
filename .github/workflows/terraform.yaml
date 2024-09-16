@@ -48,10 +48,10 @@ jobs:
           terraform plan -var-file=./variables/vars.tfvars
         working-directory: ${{ env.working-directory }}
 
-    #   - name: Terraform Apply
-    #     id: apply
-    #     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-    #     run: |
-    #       terraform init
-    #       terraform apply -auto-approve -input=false -var-file=./variables/vars.tfvars
-    #     working-directory: ${{ env.working-directory }}
+      - name: Terraform Apply
+        id: apply
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: |
+          terraform init
+          terraform apply -auto-approve -input=false -var-file=./variables/vars.tfvars
+        working-directory: ${{ env.working-directory }}
