@@ -13,7 +13,7 @@ jobs:
     permissions:
       id-token: write
       contents: read
-      
+
     steps:
     - name: Check out code
       uses: actions/checkout@v2
@@ -36,4 +36,4 @@ jobs:
         sudo mv skaffold /usr/local/bin
 
     - name: Build and Push Docker Images
-      run: skaffold build --default-repo=${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/api/ecomm --tag=${{ github.sha }}
+      run: skaffold build --default-repo=${{ secrets.ACCOUNT_ID }}.dkr.ecr.${{ env.REGION }}.amazonaws.com/api/ecomm --tag=${{ github.sha }}
