@@ -1,0 +1,57 @@
+name: Terraform 
+on:
+  push:
+    branches:
+      - main
+    paths:
+        - 'terraform/**'
+        - '.github/workflows/terraform.yaml'
+
+jobs:
+  Terraform:
+    runs-on: ubuntu-latest
+    env:
+      working-directory: terraform
+      REGION: eu-west-1
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-region: ${{ env.REGION }}
+          role-to-assume: arn:aws:iam::${{ secrets.ACCOUNT_ID }}:role/${{ secrets.ROLE_NAME }}
+          role-session-name: ConfigureInfra
+
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Terraform fmt
+        id: fmt
+        run: terraform fmt -check
+        continue-on-error: true
+
+      - name: Terraform Init
+        id: init
+        run: terraform init
+        working-directory: ${{ env.working-directory }}
+
+      - name: Terraform Validate
+        id: validate
+        run: terraform validate
+        working-directory: ${{ env.working-directory }}
+
+      - name: Terraform Plan
+        id: plan
+        run: |
+          terraform plan -var-file=./variables/vars.tfvars
+        working-directory: ${{ env.working-directory }}
+
+      - name: Terraform Apply
+        id: apply
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: |
+          terraform init
+          terraform apply -auto-approve -input=false -var-file=./variables/vars.tfvars
+        working-directory: ${{ env.working-directory }}
