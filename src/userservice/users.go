@@ -8,6 +8,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
 	"github.com/yehoshua305/e-comm-microservices/src/db"
+	"github.com/yehoshua305/e-comm-microservices/src/token"
 	"github.com/yehoshua305/e-comm-microservices/src/util"
 )
 

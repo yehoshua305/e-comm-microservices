@@ -7,6 +7,7 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
+	"github.com/yehoshua305/e-comm-microservices/src/util"
 )
 
 type renewAccessTokenRequest struct {
@@ -21,21 +22,21 @@ type renewAccessTokenResponse struct {
 func (server *Server) renewAccessToken(ctx *gin.Context) {
 	var req renewAccessTokenRequest
 	if err := ctx.ShouldBindJSON(&req); err != nil {
-		ctx.JSON(http.StatusBadRequest, errorResponse(err))
+		ctx.JSON(http.StatusBadRequest, util.ErrorResponse(err))
 		return
 	}
 
 	// Verify Refresh Token
 	refreshPayload, err := server.tokenMaker.VerifyToken(req.RefreshToken)
 	if err != nil {
-		ctx.JSON(http.StatusUnauthorized, errorResponse(err))
+		ctx.JSON(http.StatusUnauthorized, util.ErrorResponse(err))
 		return
 	}
 
 	// Get Session
 	session, err := server.table.GetSession(ctx, refreshPayload.Username, refreshPayload.ID.String())
 	if err != nil {
-		ctx.JSON(http.StatusNotFound, errorResponse(err))
+		ctx.JSON(http.StatusNotFound, util.ErrorResponse(err))
 		return
 	}
 
@@ -43,32 +44,32 @@ func (server *Server) renewAccessToken(ctx *gin.Context) {
 
 	// Check if Session is blocked
 	if session.IsBlocked {
-		ctx.JSON(http.StatusUnauthorized, errorResponse(fmt.Errorf("blocked session")))
+		ctx.JSON(http.StatusUnauthorized, util.ErrorResponse(fmt.Errorf("blocked session")))
 		return
 	}
 
 	// Check username
 	if session.Username != refreshPayload.Username {
-		ctx.JSON(http.StatusUnauthorized, errorResponse(fmt.Errorf("incorrect session user")))
+		ctx.JSON(http.StatusUnauthorized, util.ErrorResponse(fmt.Errorf("incorrect session user")))
 		return
 	}
 
 	// Check refreshToken
 	if session.RefreshToken != req.RefreshToken {
-		ctx.JSON(http.StatusUnauthorized, errorResponse(fmt.Errorf("mismatch session token")))
+		ctx.JSON(http.StatusUnauthorized, util.ErrorResponse(fmt.Errorf("mismatch session token")))
 		return
 	}
 
 	// Check expiration time
 	if time.Now().After(session.ExpiresAt) {
-		ctx.JSON(http.StatusUnauthorized, errorResponse(fmt.Errorf("expired session")))
+		ctx.JSON(http.StatusUnauthorized, util.ErrorResponse(fmt.Errorf("expired session")))
 		return
 	}
 
 	// Create new Access Token
 	accessToken, accessPayload, err := server.tokenMaker.CreateToken(refreshPayload.Username, server.config.AccessTokenDuration)
 	if err != nil {
-		ctx.JSON(http.StatusInternalServerError, errorResponse(err))
+		ctx.JSON(http.StatusInternalServerError, util.ErrorResponse(err))
 		return
 	}
 	resp := renewAccessTokenResponse{
