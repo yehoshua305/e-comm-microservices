@@ -7,7 +7,6 @@ import (
 	"strings"
 
 	"github.com/gin-gonic/gin"
-	"github.com/yehoshua305/e-comm-microservices/src/token"
 )
 
 const (
@@ -22,7 +21,7 @@ const (
 // The middleware checks the authorization header in the request,
 // verifies the access token, and sets the authorization payload
 // in the context for further processing.
-func AuthMiddleware(tokenMaker token.Maker) gin.HandlerFunc {
+func AuthMiddleware(tokenMaker Maker) gin.HandlerFunc {
 	return func (ctx *gin.Context) {
 		// get authorization header
 		authorizationHeader := ctx.GetHeader(AuthorizationHeaderKey)
