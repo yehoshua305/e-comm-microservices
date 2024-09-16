@@ -10,7 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     env:
       REGION: eu-west-1
-
+    permissions:
+      id-token: write
+      contents: read
+      
     steps:
     - name: Check out code
       uses: actions/checkout@v2
@@ -20,7 +23,7 @@ jobs:
       with:
         aws-region: ${{ env.REGION }}
         role-to-assume: arn:aws:iam::${{ secrets.ACCOUNT_ID }}:role/${{ secrets.ROLE_NAME }}
-        role-session-name: ConfigureInfra
+        role-session-name: BuildAndPushDockerImages
 
     - name: Login to Amazon ECR
       id: login-ecr
