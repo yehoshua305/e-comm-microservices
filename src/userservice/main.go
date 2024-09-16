@@ -1,4 +1,4 @@
-package users
+package main
 
 import (
 	"context"
@@ -10,6 +10,7 @@ import (
 	"github.com/aws/aws-sdk-go-v2/service/dynamodb"
 	db "github.com/yehoshua305/e-comm-microservices/src/db"
 	"github.com/yehoshua305/e-comm-microservices/src/util"
+	"github.com/yehoshua305/e-comm-microservices/src/user"
 )
 
 func main() {
@@ -38,7 +39,7 @@ func main() {
 	})
 
 	table := db.Table{TableName: "Test", DynamodbClient: dynamoDBClient}
-	server, err := NewServer(configVariables, table)
+	server, err := user.NewServer(configVariables, table)
 	if err != nil {
 		log.Fatalf("Error creating server: %v", err)
 	}

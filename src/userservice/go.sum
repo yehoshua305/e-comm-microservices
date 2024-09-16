@@ -152,6 +152,8 @@ github.com/yehoshua305/e-comm-microservices/src/util v0.0.0-20240916181947-eaa40
 github.com/yehoshua305/e-comm-microservices/src/util v0.0.0-20240916181947-eaa40e31b399/go.mod h1:aBTKLWlyF0qnAwnpP4sWink3SaVxVSx4DUmqUOeaOrQ=
 github.com/yehoshua305/e-comm-microservices/src/util v0.0.0-20240916182251-5a44a28c533a h1:4AzhoOwFlX9Tt5WTfc2bsl6mNfJdw83CJfdpaOVYu8w=
 github.com/yehoshua305/e-comm-microservices/src/util v0.0.0-20240916182251-5a44a28c533a/go.mod h1:aBTKLWlyF0qnAwnpP4sWink3SaVxVSx4DUmqUOeaOrQ=
+github.com/yehoshua305/e-comm-microservices/src/util v0.0.0-20240916182726-b3ab68157f66 h1:ye/WA8fkE3w7lIgLPONpVq6aJTfWU5NDjrPtprmkE3s=
+github.com/yehoshua305/e-comm-microservices/src/util v0.0.0-20240916182726-b3ab68157f66/go.mod h1:aBTKLWlyF0qnAwnpP4sWink3SaVxVSx4DUmqUOeaOrQ=
 go.uber.org/multierr v1.11.0 h1:blXXJkSxSSfBVBlC76pxqeO+LN3aDfLQo+309xJstO0=
 go.uber.org/multierr v1.11.0/go.mod h1:20+QtiLqy0Nd6FdQB9TLXag12DsQkrbs3htMFfDN80Y=
 golang.org/x/arch v0.10.0 h1:S3huipmSclq3PJMNe76NGwkBR504WFkQ5dhzWzP8ZW8=
