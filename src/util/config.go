@@ -8,8 +8,7 @@ import (
 
 type Config struct {
 	Environment                string        `mapstructure:"ENVIRONMENT"`
-	HTTPServerAddress          string        `mapstructure:"HTTPServerAddress"`
-	GRPCServerAddress          string        `mapstructure:"GRPCServerAddress"`
+	ServerAddress              string        `mapstructure:"ServerAddress"`
 	DYNAMODB_ACCESS_KEYID      string        `mapstructure:"DYNAMODB_ACCESS_KEYID"`
 	DYNAMODB_SECRET_ACCESS_KEY string        `mapstructure:"DYNAMODB_SECRET_ACCESS_KEY"`
 	TokenSymmetricKey          string        `mapstructure:"TOKEN_SYMMETRIC_KEY"`
