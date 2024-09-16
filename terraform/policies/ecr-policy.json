@@ -1,0 +1,18 @@
+{
+    "Version": "2008-10-17",
+    "Statement": [
+      {
+        "Sid": "ECR",
+        "Effect": "Allow",
+        "Principal": {
+          "AWS": [
+            "arn:aws:iam::${account_id}:root"
+          ]
+        },
+        "Action": [
+          "ecr:BatchGetImage",
+          "ecr:GetDownloadUrlForLayer"
+        ]
+      }
+    ]
+  }
