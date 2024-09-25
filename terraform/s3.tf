@@ -15,8 +15,7 @@ module "issuer" {
   block_public_policy     = false
   ignore_public_acls      = false
   restrict_public_buckets = false
-
-
+  object_ownership        = "BucketOwnerPreferred"
   versioning = {
     enabled = true
   }
