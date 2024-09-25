@@ -2,14 +2,14 @@
 
 resource "random_string" "random" {
   length           = 8
-  special          = true
+  special          = false
   override_special = "/@£$"
 }
 
 module "issuer" {
   source = "terraform-aws-modules/s3-bucket/aws"
 
-  bucket = random_string.random.result
+  bucket = lower(random_string.random.result)
   acl    = "public-read"
 
   versioning = {
