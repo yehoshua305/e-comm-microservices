@@ -8,8 +8,49 @@ on:
         - '.github/workflows/terraform.yaml'
 
 jobs:
-  Terraform:
+  Terraform-Plan:
     runs-on: ubuntu-latest
+    env:
+      working-directory: terraform
+      REGION: eu-west-1
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-region: ${{ env.REGION }}
+          role-to-assume: arn:aws:iam::${{ secrets.ACCOUNT_ID }}:role/${{ secrets.ROLE_NAME }}
+          role-session-name: ConfigureInfra
+
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Terraform fmt
+        id: fmt
+        run: terraform fmt -check
+        continue-on-error: true
+
+      - name: Terraform Init
+        id: init
+        run: terraform init
+        working-directory: ${{ env.working-directory }}
+
+      - name: Terraform Validate
+        id: validate
+        run: terraform validate
+        working-directory: ${{ env.working-directory }}
+
+      - name: Terraform Plan
+        id: plan
+        run: |
+          terraform plan -var-file=./variables/vars.tfvars
+        working-directory: ${{ env.working-directory }}
+  Terraform-Apply:
+    needs: Terraform-Plan
+    runs-on: ubuntu-latest
+    environment: dev
     env:
       working-directory: terraform
       REGION: eu-west-1
@@ -55,3 +96,4 @@ jobs:
           terraform init
           terraform apply -auto-approve -input=false -var-file=./variables/vars.tfvars
         working-directory: ${{ env.working-directory }}
+
