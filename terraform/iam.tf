@@ -1,5 +1,5 @@
 resource "aws_iam_openid_connect_provider" "irsa" {
-  url             = var.issuer
+  url             = var.ISSUER
   client_id_list  = ["sts.amazonaws.com"]
-  thumbprint_list = [var.ca_thumbprint]
+  thumbprint_list = [var.CA_THUMBPRINT]
 }
