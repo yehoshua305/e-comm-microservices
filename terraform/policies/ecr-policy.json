@@ -11,7 +11,9 @@
         },
         "Action": [
           "ecr:BatchGetImage",
-          "ecr:GetDownloadUrlForLayer"
+          "ecr:GetDownloadUrlForLayer",
+          "ecr:BatchCheckLayerAvailability",
+          "ecr:GetAuthorizationToken"
         ]
       }
     ]
