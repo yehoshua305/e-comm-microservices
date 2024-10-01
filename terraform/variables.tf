@@ -1,9 +1,9 @@
-variable "ISSUER" {
+variable "issuer" {
   type    = string
   default = ""
 }
 
-variable "CA_THUMBPRINT" {
+variable "ca_thumbprint" {
   type    = string
   default = ""
 }

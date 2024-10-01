@@ -13,6 +13,8 @@ jobs:
     env:
       working-directory: terraform
       REGION: eu-west-1
+      TF_VAR_ca_thumbprint: ${{ secrets.TF_VAR_CA_THUMBPRINT }}
+      TF_VAR_issuer: ${{ secrets.TF_VAR_ISSUER }}
     permissions:
       id-token: write
       contents: read
@@ -54,6 +56,8 @@ jobs:
     env:
       working-directory: terraform
       REGION: eu-west-1
+      TF_VAR_ca_thumbprint: ${{ secrets.TF_VAR_CA_THUMBPRINT }}
+      TF_VAR_issuer: ${{ secrets.TF_VAR_ISSUER }}
     permissions:
       id-token: write
       contents: read
