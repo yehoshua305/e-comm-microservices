@@ -18,7 +18,7 @@ resource "aws_iam_role" "irsa" {
             {
                 "Effect": "Allow",
                 "Principal": {
-                    "Federated": ${aws_iam_openid_connect_provider.irsa.arn}
+                    "Federated": "${aws_iam_openid_connect_provider.irsa.arn}"
                 },
                 "Action": "sts:AssumeRoleWithWebIdentity"
             }
