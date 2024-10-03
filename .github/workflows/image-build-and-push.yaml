@@ -47,4 +47,4 @@ jobs:
         AWS_ACCOUNT_ID: ${{ secrets.ACCOUNT_ID }}
         AWS_REGION: ${{ env.REGION }}
       run: |
-        skaffold build --default-repo $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com 
+        skaffold build --default-repo $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/ecomm

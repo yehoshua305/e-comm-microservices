@@ -9,10 +9,10 @@ build:
     custom:
       buildCommand: |
         docker buildx build --platform linux/arm64 -t \
-        $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/userservice:$(git rev-parse --short HEAD) \
-        -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/userservice:latest --output type=image,push=true .
+        $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/ecomm/userservice:$(git rev-parse --short HEAD) \
+        -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/ecomm/userservice:latest --output type=image,push=true .
   tagPolicy:
     gitCommit: {}
   local:
-    useBuildkit: true
+    useBuildkit: true/ecomm
   
