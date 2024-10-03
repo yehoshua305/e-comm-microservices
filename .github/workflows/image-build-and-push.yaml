@@ -41,7 +41,9 @@ jobs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
 
-    - name: Build and Push Docker Images
+    - name: Build and push Docker image with Skaffold
+      env:
+        AWS_ACCOUNT_ID: ${{ secrets.ACCOUNT_ID }}
+        AWS_REGION: ${{ env.REGION }}
       run: |
-        skaffold build --default-repo=${{ secrets.ACCOUNT_ID }}.dkr.ecr.${{ env.REGION }}.amazonaws.com/ecomm 
-        skaffold build --default-repo=${{ secrets.ACCOUNT_ID }}.dkr.ecr.${{ env.REGION }}.amazonaws.com/ecomm 
+        skaffold build --default-repo $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com 
