@@ -14,5 +14,5 @@ build:
   tagPolicy:
     gitCommit: {}
   local:
-    useBuildkit: true/ecomm
+    useBuildkit: true
   
