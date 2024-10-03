@@ -8,7 +8,7 @@ build:
     context: src/userservice
     custom:
       buildCommand: |
-        docker buildx build --platform linux/arm64 -t \
+        docker buildx build --platform linux/amd64,linux/arm64 -t \
         $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/ecomm/userservice:$(git rev-parse --short HEAD) \
         -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/ecomm/userservice:latest --output type=image,push=true .
   tagPolicy:
