@@ -4,7 +4,7 @@ resource "aws_iam_openid_connect_provider" "irsa" {
   client_id_list  = ["sts.amazonaws.com"]
   thumbprint_list = [var.ca_thumbprint]
   lifecycle {
-    ignore_changes = [ thumbprint_list ]
+    ignore_changes = [thumbprint_list]
   }
 }
 
