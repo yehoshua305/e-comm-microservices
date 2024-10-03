@@ -40,5 +40,5 @@ jobs:
 
     - name: Build and Push Docker Images
       run: |
-        skaffold build --default-repo=${{ secrets.ACCOUNT_ID }}.dkr.ecr.${{ env.REGION }}.amazonaws.com/ecomm --tag=${{ github.sha }}
-        skaffold build --default-repo=${{ secrets.ACCOUNT_ID }}.dkr.ecr.${{ env.REGION }}.amazonaws.com/ecomm --tag=latest
+        skaffold build --default-repo=${{ secrets.ACCOUNT_ID }}.dkr.ecr.${{ env.REGION }}.amazonaws.com/ecomm --tag=${{ github.sha }} --platform=linux/arm64
+        skaffold build --default-repo=${{ secrets.ACCOUNT_ID }}.dkr.ecr.${{ env.REGION }}.amazonaws.com/ecomm --tag=latest --platform=linux/arm64
