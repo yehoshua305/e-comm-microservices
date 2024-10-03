@@ -10,9 +10,15 @@ build:
   # https://skaffold.dev/docs/concepts/#image-repository-handling
   - image: userservice
     context: src/userservice
+    custom:
+      buildCommand: |
+        docker buildx build --platform linux/amd64,linux/arm64 -t userservice:$(git rev-parse --short HEAD) -t userservice:latest .
+      pushCommand: |
+        docker push userservice:$(git rev-parse --short HEAD)
+        docker push userservice:latest
   # - image: productcatalogservice
   #   context: src/productcatalogservice
   tagPolicy:
     gitCommit: {}
   local:
-    useBuildkit: false
+    useBuildkit: true

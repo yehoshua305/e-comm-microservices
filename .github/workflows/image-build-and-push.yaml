@@ -38,7 +38,10 @@ jobs:
         chmod +x skaffold
         sudo mv skaffold /usr/local/bin
 
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+
     - name: Build and Push Docker Images
       run: |
-        skaffold build --default-repo=${{ secrets.ACCOUNT_ID }}.dkr.ecr.${{ env.REGION }}.amazonaws.com/ecomm --tag=${{ github.sha }} --platform=linux/arm64
-        skaffold build --default-repo=${{ secrets.ACCOUNT_ID }}.dkr.ecr.${{ env.REGION }}.amazonaws.com/ecomm --tag=latest --platform=linux/arm64
+        skaffold build --default-repo=${{ secrets.ACCOUNT_ID }}.dkr.ecr.${{ env.REGION }}.amazonaws.com/ecomm 
+        skaffold build --default-repo=${{ secrets.ACCOUNT_ID }}.dkr.ecr.${{ env.REGION }}.amazonaws.com/ecomm 
