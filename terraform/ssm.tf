@@ -2,7 +2,7 @@
 resource "aws_ssm_parameter" "symmetric_key" {
   name  = "SymmetricKey"
   type  = "String"
-  value = ""
+  value = "string"
   lifecycle {
     ignore_changes = [value]
   }
@@ -11,7 +11,7 @@ resource "aws_ssm_parameter" "symmetric_key" {
 resource "aws_ssm_parameter" "access_token_duration" {
   name  = "AccessTokenDuration"
   type  = "String"
-  value = ""
+  value = "string"
   lifecycle {
     ignore_changes = [value]
   }
@@ -20,7 +20,7 @@ resource "aws_ssm_parameter" "access_token_duration" {
 resource "aws_ssm_parameter" "refresh_token_duration" {
   name  = "RefreshTokenDuration"
   type  = "String"
-  value = ""
+  value = "string"
   lifecycle {
     ignore_changes = [value]
   }
@@ -29,7 +29,7 @@ resource "aws_ssm_parameter" "refresh_token_duration" {
 resource "aws_ssm_parameter" "server_address" {
   name  = "ServerAddress"
   type  = "String"
-  value = ""
+  value = "string"
   lifecycle {
     ignore_changes = [value]
   }
